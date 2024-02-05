@@ -15,6 +15,14 @@ public class Role {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int rid;
 	private String rname;
+	
+	
+	
+	
+	public Role(String rname) {
+		super();
+		this.rname = rname;
+	}
 	public int getRid() {
 		return rid;
 	}
