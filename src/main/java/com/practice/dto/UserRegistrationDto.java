@@ -7,7 +7,7 @@ public class UserRegistrationDto {
 	private String uemail;
 	private String upassword;
 	
-	
+	public UserRegistrationDto(){}
 	
 	
 	public UserRegistrationDto(String uname, String uemail, String upassword) {

@@ -2,6 +2,8 @@ package com.practice.entity;
 
 import java.util.Collection;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -20,7 +22,9 @@ import jakarta.persistence.UniqueConstraint;
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@GenericGenerator(name = "auto",strategy = "increment")
+//	@GeneratedValue(generator = "auto")
 	private int uid;
 	private String uname;
 	private String uemail;
