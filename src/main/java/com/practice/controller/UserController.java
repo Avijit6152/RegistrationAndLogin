@@ -29,14 +29,14 @@ public class UserController {
 	}
 	
 	
-	@GetMapping
+	@GetMapping("/")
 	public String showRegistrationForm(Model model) {
 		model.addAttribute("user", new UserRegistrationDto());
 		return "registration";
 	}
 	
 	
-	@PostMapping
+	@PostMapping("/")
 	public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto userRegistrationDto) {
 		
 		userServiceImpl.save(userRegistrationDto);
@@ -44,3 +44,7 @@ public class UserController {
 		return "redirect:/registration?success";
 	}
 }
+
+
+
+//Registration and login
