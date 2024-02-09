@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.practice.dto.UserRegistrationDto;
+import com.practice.service.UserService;
 import com.practice.service.UserServiceImpl;
 
 @Controller
@@ -15,11 +16,11 @@ import com.practice.service.UserServiceImpl;
 public class UserController {
 
 	
-	private UserServiceImpl userServiceImpl;
+	private UserService userService;
 
 	public UserController(UserServiceImpl userServiceImpl) {
 		super();
-		this.userServiceImpl = userServiceImpl;
+		this.userService = userServiceImpl;
 	}
 	
 	
@@ -29,17 +30,24 @@ public class UserController {
 	}
 	
 	
-	@GetMapping("/")
-	public String showRegistrationForm(Model model) {
-		model.addAttribute("user", new UserRegistrationDto());
+	
+	@GetMapping
+	public String showRegistrationForm() {
+		
 		return "registration";
 	}
 	
+//	@GetMapping
+//	public String showRegistrationForm(Model model) {
+//		model.addAttribute("user", new UserRegistrationDto());
+//		return "registration";
+//	}
 	
-	@PostMapping("/")
+	
+	@PostMapping
 	public String registerUserAccount(@ModelAttribute("user") UserRegistrationDto userRegistrationDto) {
 		
-		userServiceImpl.save(userRegistrationDto);
+		userService.save(userRegistrationDto);
 		
 		return "redirect:/registration?success";
 	}

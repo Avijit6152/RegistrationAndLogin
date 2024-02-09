@@ -16,7 +16,7 @@ public class Role {
 	private int rid;
 	private String rname;
 	
-	
+	public Role() {}
 	
 	
 	public Role(String rname) {
