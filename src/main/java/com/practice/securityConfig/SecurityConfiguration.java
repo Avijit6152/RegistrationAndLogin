@@ -53,16 +53,15 @@ public class SecurityConfiguration   {
 	
 	
 	
-	protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
+	protected  void configure(HttpSecurity httpSecurity) throws Exception{
 		
-		httpSecurity.authorizeRequests().requestMatchers("/registration + /registration/**","/js/**","/css/**","/img/**")
+		httpSecurity.authorizeRequests().requestMatchers(" /registration**","/js/**","/css/**","/img/**")
 		.permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll()
 		.and().logout().invalidateHttpSession(true).clearAuthentication(true)
 		.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout")
 		.permitAll();
 		
-	  return httpSecurity.httpBasic().disable()
-	            .build();
+	 
 	}
 	
 }

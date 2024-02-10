@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.thymeleaf.org">
+<html xmlns="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <meta charset="ISO-8859-1">
 <title>Home</title>
@@ -30,5 +31,7 @@
 <br>
 
       <h1>Welcome to HomePage</h1>
+      
+      Welcome <span sec:authentication="principal.uname"> User </span>
 </body>
 </html>
